@@ -9,7 +9,10 @@ dotenv.config();
 class App {
   constructor() {
     this.server = express(); //ativar o servidor; server é a variavel que tem o express
-    mongoose.connect(process.env.DATABASE, {}); //conexão com banco
+    mongoose.connect(process.env.DATABASE, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }); //conexão com banco
     this.middlewares(); // conectar com middleware
     this.routes();
   }
